@@ -188,7 +188,7 @@ function HomeScreen(props) {
                   borderRadius: 5,
                   width: 10,
                   height: 10,
-                  backgroundColor: "blue",
+                  backgroundColor: "black",
                 }}
               ></View>
             </View>
@@ -217,7 +217,7 @@ function HomeScreen(props) {
           <View>
             <Image
               style={{
-                width: width / 2,
+                width: width / 1.9,
                 height: height / 2,
                 margin: 20,
                 borderRadius: 20,
@@ -225,9 +225,35 @@ function HomeScreen(props) {
               source={item.image}
               resizeMode="cover"
             />
-            <View>
-              <Text>Furniture</Text>
-              <Text>{item.productName}</Text>
+            <View
+              style={{
+                position: "absolute",
+                top: 30,
+                left: "12%",
+                right: "10%",
+              }}
+            >
+              <Text style={{ color: "white", fontWeight: "700", fontSize: 22 }}>
+                Furniture
+              </Text>
+              <Text style={{ color: "white", fontWeight: "700", fontSize: 20 }}>
+                {item.productName}
+              </Text>
+            </View>
+            <View
+              style={{
+                borderRadius: 15,
+                position: "absolute",
+                bottom: 30,
+                left: 30,
+                margin: 10,
+                backgroundColor: "lightgrey",
+                padding: 10,
+              }}
+            >
+              <Text style={{ fontWeight: "700", fontSize: 20 }}>
+                ${item.price.toFixed(2)}
+              </Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -243,6 +269,64 @@ function HomeScreen(props) {
           keyExtractor={(item) => item.productId}
         />
       </View>
+    );
+  };
+
+  const PromotionCard = () => {
+    return (
+      <>
+        <View style={[styles.promocard, styles.shadow]}>
+          {/* image */}
+
+          <View
+            style={{
+              width: 50,
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 20,
+              marginHorizontal: 10,
+              marginVertical: 10,
+              backgroundColor: "lightgrey",
+            }}
+          >
+            <Image
+              source={require("../assets/sofa.png")}
+              style={{ height: 50, width: 50 }}
+            />
+          </View>
+
+          {/* text */}
+
+          <View style={{ margin: 30 }}>
+            <Text style={{ fontWeight: "700", fontSize: 20 }}>
+              Special Order
+            </Text>
+            <Text style={{ fontWeight: "400", fontSize: 15 }}>
+              Adding to your Cart
+            </Text>
+          </View>
+
+          {/* button */}
+
+          <View style={{ margin: 30 }}>
+            <TouchableOpacity
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                height: 50,
+                width: 40,
+                borderRadius: 10,
+                backgroundColor: "#a6c13c",
+              }}
+            >
+              <Image
+                style={{ width: "50%", height: "50%" }}
+                source={require("../assets/chevron_icon.png")}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </>
     );
   };
 
@@ -265,14 +349,25 @@ function HomeScreen(props) {
       <View style={{ flex: 1 }}>
         <ScrollableCards productList={selectedTab.productList} />
       </View>
+
+      <View>
+        <PromotionCard />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  promocard: {
+    flexDirection: "row",
+    margin: 20,
+    height: 110,
+    borderRadius: 20,
+    backgroundColor: "white",
+  },
   container: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "lightgrey",
   },
   shadow: {
     shadowColor: "#000",
