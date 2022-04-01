@@ -138,7 +138,63 @@ function DetailsScreen({ route, navigation }) {
           borderRadius: 35,
           justifyContent: "space-between",
         }}
-      ></View>
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+          }}
+        >
+          <View style={{ marginHorizontal: 20 }}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image
+                source={require("../assets/dashboard_icon.png")}
+                style={{ width: 20, height: 20, tintColor: "grey" }}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ marginHorizontal: 50 }}>
+            <TouchableOpacity
+              style={{
+                width: 50,
+                height: 50,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+                marginHorizontal: 10,
+                marginVertical: 10,
+                backgroundColor: "#a6c13c",
+              }}
+            >
+              <Image
+                style={{ height: 20, width: 20, tintColor: "white" }}
+                source={require("../assets/plus_icon.png")}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ marginHorizontal: 10 }}>
+            <TouchableOpacity
+              style={{
+                width: 50,
+                height: 50,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+                marginHorizontal: 10,
+                marginVertical: 10,
+              }}
+            >
+              <Image
+                style={{ height: 20, width: 20, tintColor: "#a6c13c" }}
+                source={require("../assets/user_icon.png")}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     );
   };
   return (
