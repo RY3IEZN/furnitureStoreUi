@@ -3,9 +3,10 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import HomeScreen from "./components/HomeScreen";
+import Navigators from "./components/navigators/Navigators";
 
 export default function App() {
-  return <HomeScreen />;
+  return <Navigators />;
 }
 
 const styles = StyleSheet.create({

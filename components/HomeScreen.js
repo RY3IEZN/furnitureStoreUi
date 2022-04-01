@@ -13,7 +13,7 @@ import {
 
 const { width, height } = Dimensions.get("window");
 
-function HomeScreen(props) {
+function HomeScreen({ navigation }) {
   const [tabList, setTabList] = useState([
     {
       id: 0,
@@ -213,7 +213,11 @@ function HomeScreen(props) {
   const ScrollableCards = ({ productList }) => {
     const Cards = ({ item }) => {
       return (
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("DetailsScreen", { itemInfo: item })
+          }
+        >
           <View>
             <Image
               style={{
@@ -318,6 +322,7 @@ function HomeScreen(props) {
                 borderRadius: 10,
                 backgroundColor: "#a6c13c",
               }}
+              onPress={() => navigation.navigate("DetailsScreen")}
             >
               <Image
                 style={{ width: "50%", height: "50%" }}
